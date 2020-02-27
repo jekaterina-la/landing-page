@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 4week-learn2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="task.css">
+</head>
+<body>
+    <div class="b-popup" id="successPopup" role="dialog">
+        <div class="b-popup-content">
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" id="btnClosePopup" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt-3">
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="img/ocean.jpg" class="w-100 h-100 rounded" alt="ocean">
+            </div>
+
+            <div class="col-sm-6">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row">
+                                <button type="button" id="formButton" class="btn btn-primary w-100">SignUp Form</button>
+                            </div>
+                            
+                        <div class="alert alert-danger d-none" id="dangerAlert" role="alert"></div>
+                        
+                        <form id="register">
+                            <div class="row pt-2">
+                                <div class="col-sm-6">
+                                    <label for="firstName">FirstName</label>
+                                    <input type="text" name="" id="firstName" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="lastName">LastName</label>
+                                    <input type="text" name="" id="lastName" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row pt-2">
+                                <div class="col-sm-6">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="" onkeyup="checkPasswordLength()" id="password" class="form-control">
+                                    <span id="passwordHelper"></span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="confirmPassword">Confirm password</label>
+                                    <input type="password" name="" onkeyup="checkConfirmPassword()" id="confirmPassword" class="form-control">
+                                    <span id="confirmPasswordHelper"></span>
+                                </div>
+                            </div>
+
+                            <div class="row pt-2">
+                                <div class="col-sm-6">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="" id="email" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="country">Select country</label>
+                                    <select id="country" name="" class="form-control">
+                                        <option value=""></option>
+                                        <option value="Latvia">Latvia</option>
+                                        <option value="Estonia">Estonia</option>
+                                        <option value="UK">UK</option>
+                                        <option value="US">US</option>
+                                        <option value="Sweden">Sweden</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row pt-2">
+                                <div class="col-sm-12">
+                                    <label for="phone">Phone</label>
+                                    <input type="number" name="" id="phone" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row pt-2">
+                                <div class="col-sm-12">
+                                    <div class="form-check" id="autocheckbox">
+                                        <input type="checkbox" class="form-check-input" checked>
+                                        <label for="autocheckbox" class="form-check-label">remember me</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="row pt-3">
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-success w-100 mt-2">Save</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="reset" class="btn btn-danger w-100 mt-2">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center p-3">All Users</h1>
+            </div>
+
+            <table class="table table-hover table-striped" id="userTable">
+                <thead class="thead-dark">
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="task.js"></script>
+</body>
+</html>
