@@ -4,7 +4,7 @@ let password = document.querySelector("#password");
 let confirmPassword = document.querySelector("#confirmPassword");
 let email = document.querySelector("#email");
 let country = document.querySelector("#country");
-let phone = document.querySelector("#phone");
+let age = document.querySelector("#age");
 let form = document.querySelector("#register");
 let successPopup = document.querySelector("#successPopup");
 let closePopup = document.querySelector("#btnClosePopup");
@@ -22,10 +22,6 @@ closePopup.addEventListener("click",function(){
     successPopup.style.display = "none";
 });
 
-let newID = 1;
-
-GenerateID();
-
 document.addEventListener("DOMContentLoaded",getUsers);
 
 table.addEventListener("click",removeRow);
@@ -33,7 +29,7 @@ table.addEventListener("click",removeRow);
 form.addEventListener("submit",(event)=>{
     event.preventDefault();
     if(checkEmptyFeild(firstName) && checkEmptyFeild(lastName) && checkEmptyFeild(password)
-    && checkEmptyFeild(confirmPassword) && checkEmptyFeild(email) && checkEmptyFeild(country) && checkEmptyFeild(phone)
+    && checkEmptyFeild(confirmPassword) && checkEmptyFeild(age) && checkEmptyFeild(country) && checkEmptyFeild(email)
     ){
         if(!checkPasswordLength()){
             checkPasswordLength();
@@ -45,9 +41,9 @@ form.addEventListener("submit",(event)=>{
             return;
         }
 
-        registerNewUser(firstName,lastName,password,email,country,phone);
+        registerNewUser(firstName,lastName,password,age,country,email);
         var username = firstName.value;
-        popUpContent.textContent = "Thanks! " + username + " successfully registered!";
+        popUpContent.textContent = "Thanks! " + username + ", successfully registered!";
         successPopup.style.display = "block";
         form.reset();
 
@@ -56,9 +52,9 @@ form.addEventListener("submit",(event)=>{
         checkEmptyFeild(lastName);
         checkEmptyFeild(password);
         checkEmptyFeild(confirmPassword);
-        checkEmptyFeild(email);
+        checkEmptyFeild(age);
         checkEmptyFeild(country);
-        checkEmptyFeild(phone);
+        checkEmptyFeild(email);
     }
 });
 
@@ -104,16 +100,20 @@ function checkConfirmPassword(){
     }
 }
 
-function registerNewUser(firstName,lastName,password,email,country,phone){
+function registerNewUser(firstName,lastName,password,age,country,email){
+    newID = localStorage.newID ? parseInt(localStorage.newID) : 0;
+    newID +=1;
+    localStorage.newID = newID;
+
     let user = `<tr>
     <td>${newID}</td>
     <td>${firstName.value}</td>
     <td>${lastName.value}</td>
     <td>${password.value}</td>
-    <td>${email.value}</td>
+    <td>${age.value}</td>
     <td>${country.value}</td>
-    <td>${phone.value}</td>
-    <td><button class="btn btn-danger"><i class="fa fa-trash"></i>Remove</button></td>
+    <td>${email.value}</td>
+    <td><button class="btn btn-info"><i class="fa fa-trash"></i>Remove</button></td>
     </tr>`;
 
     table.innerHTML += user;
@@ -142,21 +142,6 @@ function getUsers(){
     usr.forEach(Element=>{
         table.innerHTML += Element;
     });
-}
-
-function GenerateID(){
-    let usr;
-    if(localStorage.getItem("user") === null){
-        usr = [];
-        newID = 1;
-    }else{
-        usr = JSON.parse(localStorage.getItem("user"));
-    }   
-    
-    usr.forEach(function(users){
-        newID = users.substring(8,users.indexOf('</td>'));
-        newID++;
-   });
 }
 
 function removeRow(event){

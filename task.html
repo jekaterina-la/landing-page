@@ -23,7 +23,7 @@
         
         <div class="row">
             <div class="col-sm-6">
-                <img src="img/ocean.jpg" class="w-100 h-100 rounded" alt="ocean">
+                <img src="img/ocean.jpg" class="w-100 img-thumbnail" alt="ocean">
             </div>
 
             <div class="col-sm-6">
@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <div class="row">
                                 <button type="button" id="formButton" class="btn btn-primary w-100">SignUp Form</button>
-                            </div>
+                        </div>
                             
                         <div class="alert alert-danger d-none" id="dangerAlert" role="alert"></div>
                         
@@ -62,8 +62,8 @@
 
                             <div class="row pt-2">
                                 <div class="col-sm-6">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="" id="email" class="form-control">
+                                    <label for="phone">Age</label>
+                                    <input type="number" name="" id="age" min="1" max="100" class="form-control">
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="country">Select country</label>
@@ -80,8 +80,8 @@
 
                             <div class="row pt-2">
                                 <div class="col-sm-12">
-                                    <label for="phone">Phone</label>
-                                    <input type="number" name="" id="phone" class="form-control">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="" id="email" class="form-control">
                                 </div>
                             </div>
 
@@ -96,10 +96,10 @@
 
                              <div class="row pt-3">
                                 <div class="col-sm-6">
-                                    <button type="submit" class="btn btn-success w-100 mt-2">Save</button>
+                                    <button type="submit" class="btn btn-outline-success w-100 mt-2">Save</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <button type="reset" class="btn btn-danger w-100 mt-2">Reset</button>
+                                    <button type="reset" class="btn btn-outline-danger w-100 mt-2">Reset</button>
                                 </div>
                             </div>
                         </form>
@@ -108,20 +108,20 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row table-responsive">
             <div class="col-sm-12">
-                <h1 class="text-center p-3">All Users</h1>
+                <h1 class="text-center p-3 display-4">All Users</h1>
             </div>
 
             <table class="table table-hover table-striped" id="userTable">
-                <thead class="thead-dark">
+                <thead class="table-info">
                     <th>ID</th>
                     <th>FirstName</th>
                     <th>LastName</th>
                     <th>Password</th>
-                    <th>Email</th>
+                    <th>Age</th>
                     <th>Country</th>
-                    <th>Phone</th>
+                    <th>Email</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
